@@ -1,0 +1,310 @@
+.target-map-wrap {
+  .relation-graph-wrap {
+    padding-top: 56px;
+    box-sizing: border-box;
+    height: calc(100vh - 56px - 50px);
+
+    .top-wrap {
+      display: flex;
+      justify-content: space-between;
+      height: 42px;
+      padding: 12px;
+
+      .inpdiv {
+        position: relative;
+
+         ::v-deep .el-input__inner {
+          width: 236px;
+          height: 30px;
+          border-radius: 15px;
+          font-size: 12px;
+        }
+
+        ::v-deep .el-icon-search {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          width: 14px;
+          height: 14px;
+          color: rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+
+    .map_container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      .vue_draggable_resizable {
+        width: 100% !important;
+        height: calc(100vh - 56px - 116px) !important;
+        margin: 0 auto;
+        cursor: pointer;
+        max-width: 100%;
+        // margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .map_content_box {}
+      }
+
+      .vdr {
+        border: none;
+      }
+
+      .org-chart-container {
+        // margin-top: 20px !important;
+
+        .horizontal .org-chart-node-label .org-chart-node-label-inner {
+          box-shadow: 0 0 rgba(0, 0, 0, 0.4) !important;
+          padding: 0 !important;
+          margin: 6px 0;
+
+          .card_wrap {
+            position: relative;
+            background: #fff;
+            border-radius: 2px;
+
+            .card_content {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              max-height: 100%;
+              padding: 12px;
+              border-radius: 2px;
+              box-shadow: 0 1px 10px #cccccc;
+              cursor: pointer;
+              width: 310px !important;
+              height: 82px !important;
+
+
+              .card_content_left {
+                -ms-flex: none;
+                flex: none;
+                width: 20px;
+                margin-right: 8px;
+              }
+
+              .card_content_right {
+                -ms-flex: 1 0 0px;
+                flex: 1 0 0px;
+                min-width: 0;
+
+                .card_content_right_top {
+                  display: -ms-flexbox;
+                  display: flex;
+                  -ms-flex-direction: row;
+                  flex-direction: row;
+
+                  span:nth-of-type(1) {
+                    flex: 1;
+                    min-width: 0;
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #646a73;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    text-align: left;
+                  }
+
+                  span:nth-of-type(2) {
+                    padding-left: 4px;
+                    margin-left: auto;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 18px;
+                    color: #329BFC;
+                  }
+                }
+
+                .card_content_right_bottom {
+                  padding-top: 2px;
+                  min-height: 22px;
+                  max-height: 44px;
+                  overflow: hidden;
+                  font-size: 14px;
+                  line-height: 22px;
+                  font-weight: 400;
+                  transition: min-height .35s ease-out;
+                  overflow-y: auto;
+                  color: #1f2329;
+                  word-break: break-word;
+                  text-align: left;
+                  // 文本多行溢出样式start
+                  text-overflow: -o-ellipsis-lastline;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  // 文本多行溢出样式end
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                  &:focus-within {
+                    outline: none;
+                  }
+                }
+              }
+            }
+
+          }
+
+          .card_wrap::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            border-radius: 2px 0 0 2px;
+          }
+
+          .card_wrap.company::before {
+            background: #329BFC;
+          }
+
+          .card_wrap.center::before {
+            background: #39C7B8;
+          }
+
+          .card_wrap.platform::before {
+            background: #90C93C;
+          }
+
+          .card_wrap.dept::before {
+            background: #7C5EBA;
+          }
+
+          .card_wrap.self::before {
+            background: #F86F62;
+          }
+
+          .card_wrap.current_select {
+            border: 1px solid #3370ff;
+          }
+
+          .card_wrap.current_empty_left_border::before {
+            background: none;
+          }
+
+        }
+
+        .horizontal .org-chart-node-label .org-chart-node-btn:hover,
+        .horizontal .org-chart-node-label .org-chart-node-left-btn:hover {
+          transform: scale(1);
+        }
+
+        .horizontal .org-chart-node-label .org-chart-node-btn,
+        .horizontal .org-chart-node-label .org-chart-node-left-btn {
+          border: none;
+        }
+
+        .horizontal .org-chart-node-label .org-chart-node-btn.childrenNum:hover,
+        .horizontal .org-chart-node-label .org-chart-node-left-btn.childrenNum:hover {
+          background: #fff;
+          color: #3370ff;
+          box-shadow: 0 1px 14px #cccccc;
+        }
+
+        .horizontal .org-chart-node-label .org-chart-node-btn.childrenNum:before,
+        .horizontal .org-chart-node-label .org-chart-node-left-btn.childrenNum:before {
+          border-top: 0px;
+        }
+
+        .horizontal .org-chart-node-label .org-chart-node-btn.childrenNum:after,
+        .horizontal .org-chart-node-label .org-chart-node-left-btn.childrenNum:after {
+          border-left: 0px;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+.empty {
+  height: 20px;
+
+  .info {
+    height: 120px !important;
+    background: #f4f4f4 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .zhedie {
+      width: 100%;
+      height: 20px;
+      background: #fff;
+      line-height: 20px;
+      background: #e4e6f0;
+      border-radius: 10px;
+      color: rgba(0, 0, 0, 0.5);
+      margin-top: 18px;
+      font-size: 12px;
+    }
+  }
+}
+
+.popover_box {
+  border: 1px solid #cccccc;
+  padding: 5px;
+  color: #1f2329;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  word-break: break-all;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+/**按钮文 */
+.org-chart-node-btn-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #909090;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.org-chart-node-left-btn:hover,
+.org-chart-node-btn:hover {
+  .org-chart-node-btn-text {
+    background: #fff;
+    color: #3370ff;
+    box-shadow: 0 1px 14px #cccccc;
+  }
+}
+
+// .horizontal .org-chart-node-label .org-chart-node-btn.expanded::before,
+// .horizontal .org-chart-node-label .org-chart-node-left-btn.expanded::before {
+//   background: #fff;
+//   border-color: #3370ff;
+//   box-shadow: 0 1px 14px #cccccc;
+// }
+
+.horizontal .org-chart-node-label .org-chart-node-btn.expanded:hover,
+.horizontal .org-chart-node-label .org-chart-node-left-btn.expanded:hover {
+  background: #fff;
+  color: #3370ff;
+  box-shadow: 0 1px 14px #cccccc;
+}
