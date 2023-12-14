@@ -1,7 +1,7 @@
 # vue-okr-tree-demo
 
     
-因公司开发需求需要做一个类似飞书OKR对齐视图的功能，参考了两位大神的代码：
+因开发需求需要做一个类似飞书OKR对齐视图的功能，参考了两位大神的代码：
 
 开源组件vue-okr-tree作者博客地址：http://t.csdnimg.cn/5gNfd  
 对组件二次封装的作者博客地址：http://t.csdnimg.cn/Tjaf0
