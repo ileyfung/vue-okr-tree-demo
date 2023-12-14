@@ -12,7 +12,7 @@ github 地址：https://github.com/qq449245884/vue-okr-tree
 
 基于二者修改后，效果如下
 
-![](img\Snipaste_2023-12-14_15-20-08.png)
+![Snipaste_2023-12-14_15-20-08.png](img%2FSnipaste_2023-12-14_15-20-08.png)
 
 飞书OKR DEMO：https://okr.feishu.cn/demo/alignment
 
