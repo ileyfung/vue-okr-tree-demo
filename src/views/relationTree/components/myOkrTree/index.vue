@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { VueOkrTree } from "vue-okr-tree";
+import {VueOkrTree} from "vue-okr-tree";
 import "vue-okr-tree/dist/vue-okr-tree.css";
 import VueDraggableResizable from "vue-draggable-resizable";
 import "vue-draggable-resizable/dist/VueDraggableResizable.css";
@@ -71,7 +71,7 @@ export default {
       childrenNum: 0,
       parentNum: 0,
       sex: sessionStorage.getItem("sex"),
-      user: {},
+      user: {name: '姜',avatar: null},
       propStyle: {
         fontSize: "12px",
         width: "24px",
@@ -82,11 +82,22 @@ export default {
     };
   },
   mounted() {
-    this.ossUrl = this.$config.ossUrl
-    this.user = this.$store.state.user
+    this.domLocation()
   },
   methods: {
-    handleDomClick() {
+    domLocation() {
+      const main = document.querySelector('.map_container');
+      let size = this.okrTreeData.length
+      if (size === 0) {
+        this.y = main.offsetHeight / 2 - 94;
+      } else {
+        this.y = main.offsetHeight / 2 - (94 * (size - 1));
+      }
+      this.x = main.offsetWidth / 2 - 155;
+    },
+    handleDomClick(event) {
+      // let currentDomNode = event.target;
+      // console.log(currentDomNode);
 
       let card_wrap = document.getElementsByClassName("card_wrap");
       let card_wrap_arr = Array.from(card_wrap);
@@ -148,7 +159,7 @@ export default {
               <div class="card_content_left">
                 {this.user.avatar ? (<div style="display: flex;">
                   <el-avatar size={20}
-                             src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+                             src={this.ossUrl + this.user.avatar}></el-avatar>
                 </div>) : (<div style="display: flex;">
                   <el-avatar size={20}>{this.user.name}</el-avatar>
                 </div>)}
